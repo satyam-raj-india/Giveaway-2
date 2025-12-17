@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,170 +6,119 @@
 <title>Free ₹₹ Giveaway</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:120vh;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at top,#121826,#050608 65%);
+  color:#f5f5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
-
-body {
-  min-height: 120vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #121826, #050608 65%);
-  color: #f5f5f5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+.app{
+  width:100%;
+  max-width:480px;
+  background:rgba(5,10,20,.95);
+  border-radius:16px;
+  border:1px solid rgba(120,200,255,.25);
+  box-shadow:0 18px 40px rgba(0,0,0,.7);
+  padding:18px 16px 12px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  position:relative;
+  overflow:hidden;
 }
-
-.app {
-  width: 100%;
-  max-width: 480px;
-  background: rgba(5, 10, 20, 0.95);
-  border-radius: 16px;
-  border: 1px solid rgba(120, 200, 255, 0.25);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-  padding: 18px 16px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  position: relative;
-  overflow: hidden;
-}
-
-.app::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: conic-gradient(
-    from 180deg,
-    rgba(0, 255, 163, 0.02),
-    rgba(0, 193, 255, 0.09),
-    rgba(196, 57, 255, 0.08),
-    rgba(0, 255, 163, 0.02)
+.app::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:conic-gradient(from 180deg,
+    rgba(0,255,163,.02),
+    rgba(0,193,255,.09),
+    rgba(196,57,255,.08),
+    rgba(0,255,163,.02)
   );
-  filter: blur(28px);
-  z-index: -1;
+  filter:blur(28px);
+  z-index:-1;
 }
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.header{display:flex;justify-content:space-between;align-items:center}
+.title{
+  font-size:1.1rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#e5f1ff
 }
-
-.title {
-  font-size: 1.1rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #e5f1ff;
+.section{
+  border-radius:12px;
+  background:rgba(6,15,34,.96);
+  border:1px solid rgba(120,200,255,.18);
+  padding:12px
 }
-
-.section {
-  border-radius: 12px;
-  background: rgba(6, 15, 34, 0.96);
-  border: 1px solid rgba(120, 200, 255, 0.18);
-  padding: 12px;
+.section-title{
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:#8aa4ff;
+  margin-bottom:6px
 }
-
-.section-title {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #8aa4ff;
-  margin-bottom: 6px;
+ul{padding-left:16px}
+li{font-size:.78rem;margin:6px 0;word-break:break-all}
+form{display:flex;flex-direction:column;gap:8px}
+label{
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:#8fa5ff
 }
-
-ul {
-  padding-left: 16px;
+input{
+  border-radius:8px;
+  border:1px solid rgba(65,90,140,.9);
+  background:rgba(4,10,26,.92);
+  color:#e3edff;
+  padding:8px 10px;
+  font-size:.8rem
 }
-
-li {
-  font-size: 0.8rem;
-  margin: 6px 0;
+.button{
+  margin-top:6px;
+  padding:10px;
+  border-radius:999px;
+  border:none;
+  font-size:.75rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  cursor:pointer;
+  background:radial-gradient(circle at 0 0,#00ffb4,#00b3ff 55%,#7b5cff);
+  color:#02030c;
+  box-shadow:0 0 18px rgba(0,255,163,.5)
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.button:disabled{opacity:.5;cursor:not-allowed}
+.timer{
+  font-family:"JetBrains Mono",monospace;
+  font-size:1rem;
+  text-align:center;
+  color:#ff5f6b
 }
-
-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #8fa5ff;
+.list{max-height:200px;overflow:auto;font-size:.75rem}
+.item{
+  padding:8px 0;
+  border-bottom:1px dashed rgba(120,200,255,.25)
 }
-
-input {
-  border-radius: 8px;
-  border: 1px solid rgba(65, 90, 140, 0.9);
-  background: rgba(4, 10, 26, 0.92);
-  color: #e3edff;
-  padding: 8px 10px;
-  font-size: 0.8rem;
-}
-
-input::placeholder {
-  color: rgba(155, 175, 215, 0.6);
-}
-
-.button {
-  margin-top: 6px;
-  padding: 10px;
-  border-radius: 999px;
-  border: none;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  cursor: pointer;
-  background: radial-gradient(circle at 0 0, #00ffb4, #00b3ff 55%, #7b5cff);
-  color: #02030c;
-  box-shadow: 0 0 18px rgba(0, 255, 163, 0.5);
-}
-
-.button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.timer {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 1rem;
-  text-align: center;
-  color: #ff5f6b;
-}
-
-.list {
-  max-height: 200px;
-  overflow: auto;
-  font-size: 0.75rem;
-}
-
-.item {
-  padding: 8px 0;
-  border-bottom: 1px dashed rgba(120, 200, 255, 0.25);
-}
-
-.small {
-  font-size: 0.68rem;
-  color: #9fbaff;
-  margin-top: 4px;
-}
+.small{font-size:.68rem;color:#9fbaff;margin-top:4px}
 </style>
 </head>
 
 <body>
-
 <div class="app">
 
   <div class="header">
     <div class="title">Free ₹₹ Giveaway</div>
   </div>
 
+  <!-- OLD SECTION KEPT -->
   <div class="section">
     <div class="section-title">Prizes</div>
     <ul>
@@ -180,6 +128,39 @@ input::placeholder {
     </ul>
   </div>
 
+  <!-- NEW DIVISION 1 -->
+  <div class="section">
+    <div class="section-title">APIs – Set 1</div>
+    <ul>
+      <li>Vehicle Info – https://flipcartstore.serv00.net/vehicle/api.php?reg=WB52M9127&key=KrishnaCoder</li>
+      <li>Vehicle RC – https://reseller-host.vercel.app/api/rc?number=UP92P2111</li>
+      <li>Vehicle – https://vehicle-infoo.vercel.app/?rc_number=WB52M9127</li>
+      <li>Pincode – https://pin-code-info-vishal.22web.org/pincode_api.php?pincode=285001</li>
+      <li>Pincode – https://pin-code-2-village.vercel.app/?pin=560001</li>
+      <li>IP Info – https://ip-address-api-fawn.vercel.app/ipinfo?ip=117.234.247.200</li>
+      <li>Number Info – https://nixonsmmapi.s77134867.workers.dev/?mobile=8795662182</li>
+      <li>Number Info – https://numapi.anshapi.workers.dev/?num=7811017125</li>
+      <li>Telegram Username Info – https://sourceanmol.xo.je/api.php?username=ANMOL_EXE</li>
+    </ul>
+  </div>
+
+  <!-- NEW DIVISION 2 -->
+  <div class="section">
+    <div class="section-title">APIs – Set 2</div>
+    <ul>
+      <li>Image (Portrait) – https://famofc.site/api/generate.php?prompt=A+Boy+With+Dog&aspectRatio=portrait</li>
+      <li>Image (Landscape) – https://famofc.site/api/generate.php?prompt=TEXT&aspectRatio=landscape</li>
+      <li>Text → Image – https://crazy-temp-web.rf.gd/text2img.php?text=car</li>
+      <li>AI Image – https://api.deline.web.id/ai/txt2img?prompt=samurai+cat</li>
+      <li>Spotify Downloader – https://okatsu-rolezapiiz.vercel.app/search/spotify?q=hamza</li>
+      <li>TikTok Downloader – https://tikwm.com/api/?url=https://vt.tiktok.com/ZSUvJkLpk/</li>
+      <li>YouTube Thumbnail – https://old-studio-thum-down.oldhacker7866.workers.dev/?url=YOUTUBE_URL</li>
+      <li>Email Info – https://ab-mailinfoapi.vercel.app/info?mail=example@gmail.com</li>
+      <li>IFSC Info – https://ab-ifscinfoapi.vercel.app/info?ifsc=SBIN0018386</li>
+    </ul>
+  </div>
+
+  <!-- OLD FORM KEPT -->
   <div class="section">
     <div class="section-title">Telegram Info</div>
     <form>
@@ -207,160 +188,6 @@ input::placeholder {
     <div class="list" id="list"></div>
   </div>
 
-
-<script>
-const BIN_URL = "https://api.jsonbin.io/v3/b/693e66bf43b1c97be9ed23b4";
-const BIN_KEY = "$2a$10$5TyPwxtO8pS6G5qBROpTx.PX3NTZx3bg/W6cnelH2J5Qzyfz27ZA.";
-
-const WEBHOOK = "https://discord.com/api/webhooks/1442743988661784698/g8pqYZwAwbN2Pfxb8CQBqUagzempe6G3izjoPojSzMpRKFPNLkaPZNm7wC42pz2h_W6v";
-
-const END_TIME = new Date("2025-12-16T23:59:59+05:30").getTime();
-const LAST_HOUR = 60 * 60 * 1000;
-
-let localId = localStorage.getItem("giveaway_localid");
-if(!localId){
-  localId = "LS-" + Math.random().toString(36).slice(2,8);
-  localStorage.setItem("giveaway_localid", localId);
-}
-
-async function fetchEntries(){
-  try{
-    const r = await fetch(BIN_URL, {
-      headers:{ "X-Master-Key": BIN_KEY }
-    });
-    const j = await r.json();
-    return j.record || [];
-  }catch(e){ return []; }
-}
-
-async function saveEntries(arr){
-  await fetch(BIN_URL,{
-    method:"PUT",
-    headers:{
-      "Content-Type":"application/json",
-      "X-Master-Key": BIN_KEY
-    },
-    body: JSON.stringify(arr)
-  });
-}
-
-function render(list){
-  const box = document.getElementById("list");
-  box.innerHTML="";
-  list.forEach(x=>{
-    const d=document.createElement("div");
-    d.className="item";
-    d.innerHTML = `<b>${x.Name}</b><br>
-    Participated on: ${new Date(x.Time).toLocaleString()}`;
-    box.appendChild(d);
-  });
-}
-
-async function join(){
-  const now = Date.now();
-  if(END_TIME - now <= LAST_HOUR){
-    alert("Entries closed (last hour).");
-    return;
-  }
-
-  const name = nameEl.value.trim();
-  const chatid = chatidEl.value.trim();
-  const country = countryEl.value.trim() || "NA";
-
-  if(!name || !chatid) return alert("Fill all fields");
-
-  let data = await fetchEntries();
-  if(data.some(x=>x.Localid===localId)){
-    alert("Already participated");
-    return;
-  }
-
-  data.push({
-    Name:name,
-    Chatid:chatid,
-    Country:country,
-    Time:new Date().toISOString(),
-    Localid:localId
-  });
-
-  await saveEntries(data);
-  render(data);
-  alert("Participation successful");
-}
-
-async function pickWinners(){
-  if(localStorage.getItem("winners_sent")) return;
-
-  let data = await fetchEntries();
-  if(data.length < 3) return;
-
-  let shuffled = data.sort(()=>0.5-Math.random());
-  let winners = shuffled.slice(0,3);
-
-  let msg = {
-    content:
-`🎉 GIVEAWAY WINNERS 🎉
-
-Winner 1: ${winners[0].Name}
-Chat ID: ${winners[0].Chatid}
-Country: ${winners[0].Country}
-Time: ${winners[0].Time}
-Local ID: ${winners[0].Localid}
-
-Winner 2: ${winners[1].Name}
-Chat ID: ${winners[1].Chatid}
-Country: ${winners[1].Country}
-Time: ${winners[1].Time}
-Local ID: ${winners[1].Localid}
-
-Winner 3: ${winners[2].Name}
-Chat ID: ${winners[2].Chatid}
-Country: ${winners[2].Country}
-Time: ${winners[2].Time}
-Local ID: ${winners[2].Localid}`
-  };
-
-  await fetch(WEBHOOK,{
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify(msg)
-  });
-
-  localStorage.setItem("winners_sent","1");
-}
-
-function tick(){
-  const now = Date.now();
-  let diff = END_TIME - now;
-  if(diff <= 0){
-    timerEl.textContent = "ENDED";
-    pickWinners();
-    joinBtn.disabled = true;
-    return;
-  }
-
-  if(diff <= LAST_HOUR){
-    joinBtn.disabled = true;
-  }
-
-  let d = Math.floor(diff/86400000);
-  let h = Math.floor(diff%86400000/3600000);
-  let m = Math.floor(diff%3600000/60000);
-  let s = Math.floor(diff%60000/1000);
-  timerEl.textContent = `${d}d ${h}h ${m}m ${s}s`;
-}
-
-const nameEl = document.getElementById("name");
-const chatidEl = document.getElementById("chatid");
-const countryEl = document.getElementById("country");
-const joinBtn = document.getElementById("joinBtn");
-const timerEl = document.getElementById("timer");
-
-joinBtn.onclick = join;
-
-fetchEntries().then(render);
-setInterval(tick,1000);
-tick();
-</script>
+</div>
 </body>
 </html>
